@@ -41,15 +41,14 @@
 
 const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
-let output = 0;
+let output = 0; //note: 0 is initiele beginwaarde!
 
 for (let i = 0; i < grades.length; i++) {
    if (grades[i] >= 8) {
-       output = output + 1;
+       output = output + 1; // output += 1; kan ook!
   }
+}console.log(output);
 
-}
-console.log(output);
 
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
@@ -70,7 +69,6 @@ function cumLaude (gradesArray) {
         }
     } return output;
 }
-
 console.log(cumLaude([6, 4, 5]));
 
 
@@ -96,14 +94,17 @@ console.log(cumLaude([6, 4, 5]));
 const grades2 = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // console.log(grades2.length) //geeft 14
 
-let sum = 0;  // console.log(sum); //geeft 93
+//let sum = 0;  // console.log(sum); //geeft 93
 let average = 0; // average = sum / grades2.length;
 
 for (let i = 0; i < grades2.length; i++) {
-    average = sum += grades2[i] / grades2.length;
+ //   average = sum += grades2[i] / grades2.length;
+    average += grades2[i]; //average = average + grades2[i];
 }
 
-console.log(average); //geeft 6.642857142857143
+//console.log(average); //geeft 6.642857142857143
+console.log(average / grades2.length);
+
 
 
 /* 2b: Omschrijven tot een herbruikbare functie */
@@ -112,20 +113,34 @@ console.log(average); //geeft 6.642857142857143
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomsten:
-// averageGrade(grades) geeft 6.642857142857143 [X]
-// averageGrade([6, 4, 5]) geeft 1.5714285714285716 [X]
-// averageGrade([8, 9, 4, 6, 10]) geeft 2.5714285714285716 [X]
+// averageGrade(grades) geeft 6.642857142857143 [-]
+// averageGrade([6, 4, 5]) geeft 1.5714285714285716 [-]
+// averageGrade([8, 9, 4, 6, 10]) geeft 2.5714285714285716 [-]
 
+
+//TRY 1 [-]
+// function averageGrade (gradesArray) {
+//    let sum = 0;
+//    let average = 0;
+//    for (let i = 0; i < gradesArray.length; i++) {
+//        average = sum += grades2[i]; //????EXPLAIN to myself :(!
+//    } return average;
+// }
+
+// console.log(averageGrade([8, 9, 4, 6, 10] ));
+
+
+//TRY 2
 
 function averageGrade (gradesArray) {
-    let sum = 0;
-    let average = 0;
-    for (let i = 0; i < gradesArray.length; i++) {
-        average = sum += grades2[i];
-    } return average;
-}
 
-console.log(averageGrade([8, 9, 4, 6, 10] ));
+let average = 0;  //initiele waarde
+for (let i = 0; i < gradesArray.length; i++) {
+    average = average + gradesArray[i]; //average += gradesArray[i];
+}
+return average / gradesArray.length ;
+}
+console.log(averageGrade([6, 4, 5])); //[6, 4, 5] geeft ===> 5 //[8, 9, 4, 6, 10] geeft ===> 7.4
 
 
 
@@ -134,10 +149,10 @@ console.log(averageGrade([8, 9, 4, 6, 10] ));
 // Tip: Google is your best friend!
 
 //**TRY 1 gives what I need but is this the right way???
-//const averageDecimal = 2.5714285714285716;
- //console.log(averageDecimal);
-//const twoDecimals = averageDecimal.toFixed(2);
-//console.log(twoDecimals);
+const averageDecimal = 2.5714285714285716;
+console.log(averageDecimal);
+const twoDecimals = averageDecimal.toFixed(2);
+console.log(twoDecimals);
 
 //**TRY2 gives ===> [Function: twoDecimals]
 // function twoDecimals (averageGrade) {
@@ -167,6 +182,26 @@ console.log(averageGrade([8, 9, 4, 6, 10] ));
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 9
+
+function highestGrade (gradesArray) {
+let outcome = 0;
+for (let i = 0; i < gradesArray.length; i++) {
+    if (gradesArray[i] > outcome) {
+        outcome = gradesArray[i]  //don't fully get this part!!
+    }
+} return outcome;
+}
+console.log(highestGrade([6, 4, 5]));
+
+
+
+
+// EIGEN NOTES 3a ******************************************************************************
+// STAP 1 - for-loop, .length
+// STAP 2 - welke conditie? if (gradesArray[i] > average;
+// STAP 3 - return average
+// *******************************************************************************************
+
 
 
 /* 3b: Omschrijven tot een herbruikbare functie */
