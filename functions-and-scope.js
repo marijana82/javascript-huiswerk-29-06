@@ -141,7 +141,7 @@ for (let i = 0; i < gradesArray.length; i++) {
 return average / gradesArray.length ;
 }
 console.log(averageGrade([6, 4, 5])); //[6, 4, 5] geeft ===> 5 //[8, 9, 4, 6, 10] geeft ===> 7.4
-
+console.log(Math.round(averageGrade([6, 4, 5])));
 
 
 /* 2c: Afronden op twee decimalen */
@@ -191,7 +191,8 @@ for (let i = 0; i < gradesArray.length; i++) {
     }
 } return outcome;
 }
-console.log(highestGrade([6, 4, 5]));
+console.log(highestGrade([8, 9, 4, 6, 10]));
+
 
 
 
@@ -210,6 +211,6 @@ console.log(highestGrade([6, 4, 5]));
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomsten:
-// highestGrade(grades) geeft 9
-// highestGrade([6, 4, 5]) geeft 6
-// highestGrade([8, 9, 4, 6, 10]) geeft 10
+// highestGrade(grades) geeft 9 [ok]
+// highestGrade([6, 4, 5]) geeft 6 [ok]
+// highestGrade([8, 9, 4, 6, 10]) geeft 10 [ok]
