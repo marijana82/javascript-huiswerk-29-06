@@ -114,23 +114,9 @@ console.log(average / grades2.length);
 
 // ---- Verwachte uitkomsten:
 // averageGrade(grades) geeft 6.642857142857143 [-]
-// averageGrade([6, 4, 5]) geeft 1.5714285714285716 [-]
-// averageGrade([8, 9, 4, 6, 10]) geeft 2.5714285714285716 [-]
+// averageGrade([6, 4, 5]) geeft xxx
+// averageGrade([8, 9, 4, 6, 10]) geeft xxx
 
-
-//TRY 1 [-]
-// function averageGrade (gradesArray) {
-//    let sum = 0;
-//    let average = 0;
-//    for (let i = 0; i < gradesArray.length; i++) {
-//        average = sum += grades2[i]; //????EXPLAIN to myself :(!
-//    } return average;
-// }
-
-// console.log(averageGrade([8, 9, 4, 6, 10] ));
-
-
-//TRY 2
 
 function averageGrade (gradesArray) {
 
@@ -141,34 +127,19 @@ for (let i = 0; i < gradesArray.length; i++) {
 return average / gradesArray.length ;
 }
 console.log(averageGrade([6, 4, 5])); //[6, 4, 5] geeft ===> 5 //[8, 9, 4, 6, 10] geeft ===> 7.4
-console.log(Math.round(averageGrade([6, 4, 5])));
-
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
+console.log(Math.round(averageGrade([6, 4, 5])));
 
-//**TRY 1 gives what I need but is this the right way???
+
+
+//**Is this also possible??
 const averageDecimal = 2.5714285714285716;
 console.log(averageDecimal);
 const twoDecimals = averageDecimal.toFixed(2);
 console.log(twoDecimals);
-
-//**TRY2 gives ===> [Function: twoDecimals]
-// function twoDecimals (averageGrade) {
-//    let decimals = 0;
-//    for (let i = 0; i < averageGrade.length; i++) {
-//        decimals = averageGrade.toFixed(2);
-//    } return decimals;
-// }
-// console.log(twoDecimals);
-
-//**TRY3 gives ===> averageGrade.toFixed is not a function
-// let decimal = 0;
-// for (let i = 0; i < averageGrade.length; i++) {
-//    decimal = averageGrade.toFixed(2);
-// }
-// console.log(decimal);
 
 
 
@@ -202,8 +173,6 @@ console.log(highestGrade([8, 9, 4, 6, 10]));
 // STAP 2 - welke conditie? if (gradesArray[i] > average;
 // STAP 3 - return average
 // *******************************************************************************************
-
-
 
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.

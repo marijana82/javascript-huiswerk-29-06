@@ -30,23 +30,25 @@ console.log(getEmailDomain("n.eeken@novi-education.nl"));
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
+
+
 function typeOfEmail (emailAddress) {
-    let emails = "null";
-    let student = "novi-education.nl";
-    let teacher = "novi.nl";
+    const emails = "null";
+//    let student = "novi-education.nl";
+//    let teacher = "novi.nl";
 //    const indexOfAap = emailAddress.indexOf(["@"]);
 //    const domainName = emailAddress.substring(indexOfAap + 1);
     switch (emails) {
-        case student:
+        case "n.eeken@novi-education.nl":
             console.log("Student");
             break;
-        case teacher:
+        case "t.mellink@novi.nl":
             console.log("Medewerker");
             break;
         default:
             console.log("Extern");
     } return emails;
- }
+}
 console.log(typeOfEmail ("n.eeken@novi-education.nl"));
 
 
