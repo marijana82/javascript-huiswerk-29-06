@@ -2,7 +2,16 @@
 // maar ook een manier moeten vinden om hetgeen dat je verzamelt ergens te bundelen. Op deze manier zul je ontdekken hoe je omgaat met scope. Pak vooral het hoofdstuk op EdHub over for-loops er nog eens bij!
 // Tip: je mag hier geen ingebouwde object methoden gebruiken, dus daar hoef je niet naar te kijken.
 
-const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+
+// EIGEN NOTES ******************************************************************************
+// [] STAP 1 - functie schrijven
+// [] STAP 2 - (lijst met) namen van studenten
+// [] STAP 3 - lijst met eindcijfers van studenten
+// [] STAP 4 - checken of de namen van studenten overeenkomen met de lijsten met eindcijfers
+// [] STAP 5 - itereren over de eindcijfers heen
+// [] STAP 6 - verzameling bundelen
+// *******************************************************************************************
+
 
 /* Opdracht  1: Cum Laude */
 
@@ -16,6 +25,31 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 
+// EIGEN NOTES ******************************************************************************
+// INPUT
+// alle cijfers opgeven
+
+// OUTPUT
+// cijfers groter of gelijk aan 8
+
+// STAPPENPLAN:
+// 1. variabele declareren voor lijst met alle cijfers
+// 2. cijfers ophalen door middel van een for-loop: met for-loop kan ik iedere waarde van de array itereren op conditie i >= 8
+// 3. .length gebruiken zodat ieder waarde wordt gechekt, ook als die 100 entries bevat
+// 4. cijfers die >= 8 uit de lijst uithalen en ergens bijhouden???
+// *******************************************************************************************
+
+const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+
+let output = 0; //note: 0 is initiele beginwaarde!
+
+for (let i = 0; i < grades.length; i++) {
+   if (grades[i] >= 8) {
+       output = output + 1; // output += 1; kan ook!
+  }
+}console.log(output);
+
+
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -27,6 +61,15 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
+function cumLaude (gradesArray) {
+    let output = 0;
+    for (let i = 0; i < gradesArray.length; i++) {
+        if (gradesArray[i] >= 8) {
+            output = output + 1;
+        }
+    } return output;
+}
+console.log(cumLaude([6, 4, 5]));
 
 
 
@@ -40,7 +83,28 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat ik alle waardes uit de array kan langslopen, ook als de array wel 100 entries zou bevatten?
 // Log het antwoord in de terminal.
 
+// EIGEN NOTES 2a ******************************************************************************
+// [] STAP 1 - om gemiddelde te berekenen moeten alle cijfers uit een array bij elkaar opgeteld worden, en dan verdeeld door lenghts van de array (totaal # items)
+// [] STAP 2 - alle cijfers + total aantal cijfers (hoeveel cijfers zijn er in een array?)
+// [] STAP 3 - met .length methode (?)
+// *******************************************************************************************
 // ---- Verwachte uitkomst: 6.642857142857143
+
+
+const grades2 = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+// console.log(grades2.length) //geeft 14
+
+//let sum = 0;  // console.log(sum); //geeft 93
+let average = 0; // average = sum / grades2.length;
+
+for (let i = 0; i < grades2.length; i++) {
+ //   average = sum += grades2[i] / grades2.length;
+    average += grades2[i]; //average = average + grades2[i];
+}
+
+//console.log(average); //geeft 6.642857142857143
+console.log(average / grades2.length);
+
 
 
 /* 2b: Omschrijven tot een herbruikbare functie */
@@ -49,15 +113,33 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomsten:
-// averageGrade(grades) geeft 6.642857142857143
-// averageGrade([6, 4, 5]) geeft xxxx
-// averageGrade([8, 9, 4, 6, 10]) geeft xxxx
+// averageGrade(grades) geeft 6.642857142857143 [-]
+// averageGrade([6, 4, 5]) geeft xxx
+// averageGrade([8, 9, 4, 6, 10]) geeft xxx
 
+
+function averageGrade (gradesArray) {
+
+let average = 0;  //initiele waarde
+for (let i = 0; i < gradesArray.length; i++) {
+    average = average + gradesArray[i]; //average += gradesArray[i];
+}
+return average / gradesArray.length ;
+}
+console.log(averageGrade([6, 4, 5])); //[6, 4, 5] geeft ===> 5 //[8, 9, 4, 6, 10] geeft ===> 7.4
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
+console.log(Math.round(averageGrade([6, 4, 5])));
 
+
+
+//**Is this also possible??
+const averageDecimal = 2.5714285714285716;
+console.log(averageDecimal);
+const twoDecimals = averageDecimal.toFixed(2);
+console.log(twoDecimals);
 
 
 
@@ -72,6 +154,25 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 9
 
+function highestGrade (gradesArray) {
+let outcome = 0;
+for (let i = 0; i < gradesArray.length; i++) {
+    if (gradesArray[i] > outcome) {
+        outcome = gradesArray[i]  //don't fully get this part!!
+    }
+} return outcome;
+}
+console.log(highestGrade([8, 9, 4, 6, 10]));
+
+
+
+
+
+// EIGEN NOTES 3a ******************************************************************************
+// STAP 1 - for-loop, .length
+// STAP 2 - welke conditie? if (gradesArray[i] > average;
+// STAP 3 - return average
+// *******************************************************************************************
 
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
@@ -79,6 +180,6 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomsten:
-// highestGrade(grades) geeft 9
-// highestGrade([6, 4, 5]) geeft 6
-// highestGrade([8, 9, 4, 6, 10]) geeft 10
+// highestGrade(grades) geeft 9 [ok]
+// highestGrade([6, 4, 5]) geeft 6 [ok]
+// highestGrade([8, 9, 4, 6, 10]) geeft 10 [ok]
